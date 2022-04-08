@@ -5,11 +5,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import streamlit as st
-import osmnx as ox
 from sklearn.linear_model import LinearRegression
-
-ox.config(use_cache=True, log_console=True)
-pyo.init_notebook_mode(connected=True)
 
 st.set_page_config(
     page_title="Bike Sharing Prediction",
