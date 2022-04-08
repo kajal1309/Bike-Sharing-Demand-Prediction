@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import streamlit as st
-import pylab
+import osmnx as ox
 from sklearn.linear_model import LinearRegression
 
 ox.config(use_cache=True, log_console=True)
