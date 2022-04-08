@@ -70,7 +70,30 @@ add_selectbox = st.sidebar.radio(
     "",
     ("About", "Bike Sharing Prediction", "Conclusion")
 )
+def pima():
+    pickle_in = open('SVM_model.pkl', 'rb')
+    classifier = pickle.load(pickle_in)
 
+    st.markdown("## Pima Indian Diabetes Disease prediction.")
+    
+    st.markdown('#### Diabetes Prediction(Only for females above 21years of Age)')
+    name = st.text_input("Name:")
+    pregnancy = st.number_input("No. of times pregnant:", min_value=0, max_value=15, step=1)
+    glucose = st.number_input("Plasma Glucose Concentration :", min_value=40, max_value=250, step=1)
+    bp =  st.number_input("Diastolic blood pressure (mm Hg):", min_value=20, max_value=140, step=1)
+    skin = st.number_input("Triceps skin fold thickness (mm):", min_value=5, max_value=80, step=1)
+    insulin = st.number_input("2-Hour serum insulin (mu U/ml):", min_value=0, max_value=1000, step=1)
+    bmi = st.number_input("Body mass index (weight in kg/(height in m)^2):", min_value=10, max_value=100, step=1)
+    dpf = st.number_input("Diabetes Pedigree Function:", min_value=0.0, max_value=2.5, step=1.0)
+    age = st.number_input("Age:", min_value=10, max_value=120, step=1)
+    submit = st.button('Predict')
+
+    if submit:
+            prediction = classifier.predict([[pregnancy, glucose, bp, skin, insulin, bmi, dpf, age]])
+            if prediction == 0:
+                st.write('Congratulation',name,'You are not diabetic')
+            else:
+                st.write(name," we are really sorry to say but it seems like you are Diabetic.")
 if add_selectbox == 'About':
     
     st.subheader('ABOUT THE PROJECT')
