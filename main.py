@@ -6,7 +6,6 @@ import pandas as pd
 import seaborn as sns
 import streamlit as st
 import pylab
-import missingno as msno
 from sklearn.linear_model import LinearRegression
 
 ox.config(use_cache=True, log_console=True)
