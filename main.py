@@ -115,9 +115,12 @@ elif add_selectbox == 'Bike Sharing Prediction':
             prediction = regressor.predict([[year, month, holiday,workingday,temperature,humidity,windspeed,day,weathersit_2,weathersit_3,weekday_Monday,weekday_Saturday,weekday_Sunday,weekday_Thursday,weekday_Tuesday,weekday_Wednesday]])
             st.write('Hi',name,'The predicted bike rentals is',prediction)
 
+elif add_selectbox == 'Team':
+    
+    st.subheader('Teamates')
 
-elif add_selectbox == 'Conclusion':
-    
-    st.subheader('CONCLUSION')
-    
-    st.markdown('', unsafe_allow_html=True)
+    st.markdown('• <a href="https://www.linkedin.com/in/vamsi-chittoor-331b80189/">Chittoor Vamsi</a>',
+                unsafe_allow_html=True)
+    st.markdown('• <a href="https://www.linkedin.com/in/skajal1309/">kajal Srivastava</a>',
+                unsafe_allow_html=True)
+
