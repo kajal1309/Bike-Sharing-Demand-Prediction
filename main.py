@@ -122,7 +122,7 @@ elif add_selectbox == 'Bike Sharing Prediction for Hour':
 
       st.markdown("## Bike sharing demand prediction ")
     
-      st.markdown('#### On daily basis')
+      st.markdown('#### On hourly basis')
       name = st.text_input("Name:")
       year = st.number_input("Enter the year code : 0:2011 ,1:2012", min_value=0, max_value=1, step=1)
       month = st.number_input("Enter the month ", min_value=1, max_value=12, step=1)
