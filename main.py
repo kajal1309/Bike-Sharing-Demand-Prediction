@@ -108,7 +108,7 @@ elif add_selectbox == 'Bike Sharing Prediction':
       weekday_Wednesday = st.number_input("Enter code for weekday_Wednesday", min_value=0, max_value=1, step=1)
       submit = st.button('Predict')
 
-     if submit:
+      if submit:
             prediction = regressor.predict([[year, month, holiday,windspeed,day,weathersit_2,weathersit_3,weekday_Monday,weekday_Saturday,weekday_Sunday,weekday_Thursday,weekday_Tuesday,weekday_Wednesday]])
             st.write('Hi',name,'The predicted bike rentals is',prediction)
 
