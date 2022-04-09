@@ -117,7 +117,7 @@ elif add_selectbox == 'Bike Sharing Prediction for Day':
 elif add_selectbox == 'Bike Sharing Prediction for Hour':
 	
       st.subheader('BIKE SHARING PREDICTION')
-      pickle_in = open('hour_model_final', 'rb')
+      pickle_in = open('hour_model_deployed', 'rb')
       regressor = pickle.load(pickle_in)
 
       st.markdown("## Bike sharing demand prediction ")
@@ -126,14 +126,14 @@ elif add_selectbox == 'Bike Sharing Prediction for Hour':
       name = st.text_input("Name:")
       year = st.number_input("Enter the year code : 0:2011 ,1:2012", min_value=0, max_value=1, step=1)
       month = st.number_input("Enter the month ", min_value=1, max_value=12, step=1)
+      hour = st.number_input("Enter the hour ", min_value=1, max_value=24, step=1)
       holiday          =  st.number_input("Enter code for holiday : 0:No holiday ,1:Holiday", min_value=0, max_value=1, step=1)
       workingday      = st.number_input("Enter the code for working day: 0:Non-working day , 1:working day", min_value=0, max_value=1, step=1)
       temperature     = st.number_input("Enter the normalized value of temperature:0 to 1 inclusive and step size 0.00001", min_value=0.0, max_value=1.0, step=0.00001)
       humidity         = st.number_input("Enter the normalized humidity :0 to 1 and step size 0.00001", min_value=0.0, max_value=1.0, step=0.00001)
       windspeed        = st.number_input("Enter the normalised windspeed :0 to 1 and step size 0.00001", min_value=0.0, max_value=1.0, step=0.00001)
       day             = st.number_input("Enter day of the month:1 to 31", min_value=1, max_value=31, step=1)
-      weathersit_2    = st.number_input("Enter code for weathersit_2", min_value=0, max_value=1, step=1)
-      weathersit_3 = st.number_input("Enter code for weathersit_3", min_value=0, max_value=1, step=1)
+      weathersit_summer    = st.number_input("Enter code for weathersit_summer", min_value=0, max_value=1, step=1)
       weekday_Monday = st.number_input("Enter code for weekday_Monday", min_value=0, max_value=1, step=1)
       weekday_Saturday = st.number_input("Enter code for weekday_Saturday", min_value=0, max_value=1, step=1)
       weekday_Sunday = st.number_input("Enter code for weekday_Sunday", min_value=0, max_value=1, step=1)
