@@ -78,7 +78,7 @@ if add_selectbox == 'About':
     st.subheader('ABOUT THE PROJECT')
 
     st.markdown('<h4>Project Goals</h4>', unsafe_allow_html=True)
-    	
+    st.markdown('Bike sharing systems are new generation of traditional bike rentals where whole process from membership, rental and return back has become automatic. ',unsafe_allow_html=True)
 elif add_selectbox == 'Bike Sharing Prediction':
 	
       st.subheader('BIKE SHARING PREDICTION')
