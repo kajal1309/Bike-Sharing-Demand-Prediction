@@ -70,7 +70,7 @@ add_selectbox = st.sidebar.radio(
     "",
     ("About", "Bike Sharing Prediction", "Conclusion")
 )
-    def pima():
+def pima():
       pickle_in = open('day_model_best.pkl', 'rb')
       regressor = pickle.load(pickle_in)
 
