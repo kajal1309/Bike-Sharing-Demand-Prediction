@@ -69,7 +69,7 @@ st.sidebar.markdown('<h1 style="margin-left:8%; color:#FA8072">Bike Sharing Pred
 
 add_selectbox = st.sidebar.radio(
     "",
-    ("About", "Bike Sharing Prediction", "Conclusion")
+    ("About", "Bike Sharing Prediction", "Team")
 )
 
 #def pima():
