@@ -143,7 +143,7 @@ elif add_selectbox == 'Bike Sharing Prediction for Hour':
       submit = st.button('Predict')
 
       if submit:
-            prediction = regressor.predict([[year, month, holiday,workingday,temperature,humidity,windspeed,day,weathersit_2,weathersit_3,weekday_Monday,weekday_Saturday,weekday_Sunday,weekday_Thursday,weekday_Tuesday,weekday_Wednesday]])
+            prediction = regressor.predict([[year, month,hour, holiday,workingday,temperature,humidity,windspeed,day,weathersit_summer,weekday_Monday,weekday_Saturday,weekday_Sunday,weekday_Thursday,weekday_Tuesday,weekday_Wednesday]])
             st.write('Hi',name,'The predicted bike rentals count is',int(prediction))
 
 elif add_selectbox == 'Team':
