@@ -71,29 +71,35 @@ add_selectbox = st.sidebar.radio(
     ("About", "Bike Sharing Prediction", "Conclusion")
 )
 def pima():
-    pickle_in = open('SVM_model.pkl', 'rb')
-    classifier = pickle.load(pickle_in)
+    pickle_in = open('day_model_best.pkl', 'rb')
+    regressor = pickle.load(pickle_in)
 
-    st.markdown("## Pima Indian Diabetes Disease prediction.")
+    st.markdown("## Bike sharing demand prediction ")
     
-    st.markdown('#### Diabetes Prediction(Only for females above 21years of Age)')
+    st.markdown('#### On daily basis')
     name = st.text_input("Name:")
-    pregnancy = st.number_input("No. of times pregnant:", min_value=0, max_value=15, step=1)
-    glucose = st.number_input("Plasma Glucose Concentration :", min_value=40, max_value=250, step=1)
-    bp =  st.number_input("Diastolic blood pressure (mm Hg):", min_value=20, max_value=140, step=1)
-    skin = st.number_input("Triceps skin fold thickness (mm):", min_value=5, max_value=80, step=1)
-    insulin = st.number_input("2-Hour serum insulin (mu U/ml):", min_value=0, max_value=1000, step=1)
-    bmi = st.number_input("Body mass index (weight in kg/(height in m)^2):", min_value=10, max_value=100, step=1)
-    dpf = st.number_input("Diabetes Pedigree Function:", min_value=0.0, max_value=2.5, step=1.0)
-    age = st.number_input("Age:", min_value=10, max_value=120, step=1)
+    year = st.number_input("Enter the year code : 0:2011 ,1:2012", min_value=0, max_value=1, step=1)
+    month = st.number_input("Enter the month ", min_value=1, max_value=12, step=1)
+    holiday          =  st.number_input("Enter code for holiday : 0:No holiday ,1:Holiday", min_value=0, max_value=1, step=1)
+    workingday      = st.number_input("Enter the code for working day: 0:Non-working day , 1:working day", min_value=0, max_value=1, step=1)
+    temperature     = st.number_input("Enter the normalized value of temperature:0 to 1 inclusive and step size 0.00001", min_value=0, max_value=1, step=0.00001)
+    humidity         = st.number_input("Enter the normalized humidity :0 to 1 and step size 0.00001", min_value=0, max_value=1, step=0.00001)
+    windspeed        = st.number_input("Enter the normalised windspeed :0 to 1 and step size 0.00001", min_value=0, max_value=1, step=0.00001)
+    day             = st.number_input("Enter day of the month:1 to 31", min_value=1, max_value=31, step=1)
+    weathersit_2    = st.number_input("Enter code for weathersit_2", min_value=0, max_value=1, step=1)
+    weathersit_3 = st.number_input("Enter code for weathersit_3", min_value=0, max_value=1, step=1)
+    weekday_Monday = st.number_input("Enter code for weekday_Monday", min_value=0, max_value=1, step=1)
+    weekday_Saturday = st.number_input("Enter code for weekday_Saturday", min_value=0, max_value=1, step=1)
+    weekday_Sunday = st.number_input("Enter code for weekday_Sunday", min_value=0, max_value=1, step=1)
+    weekday_Thursday = st.number_input("Enter code for weekday_Thursday", min_value=0, max_value=1, step=1)
+    weekday_Tuesday= st.number_input("Enter code for weekday_Tuesday", min_value=0, max_value=1, step=1)
+    weekday_Wednesday = st.number_input("Enter code for weekday_Wednesday", min_value=0, max_value=1, step=1)
     submit = st.button('Predict')
 
     if submit:
-            prediction = classifier.predict([[pregnancy, glucose, bp, skin, insulin, bmi, dpf, age]])
-            if prediction == 0:
-                st.write('Congratulation',name,'You are not diabetic')
-            else:
-                st.write(name," we are really sorry to say but it seems like you are Diabetic.")
+            prediction = regressor.predict([[year, month, holiday,windspeed,day,weathersit_2,weathersit_3,weekday_Monday,weekday_Saturday,weekday_Sunday,weekday_Thursday,weekday_Tuesday,weekday_Wednesday]])
+            st.write('Hi',name,'The predicted bike rentals is',prediction)
+
 if add_selectbox == 'About':
     
     st.subheader('ABOUT THE PROJECT')
