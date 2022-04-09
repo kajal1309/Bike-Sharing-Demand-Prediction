@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import streamlit as st
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import RandomForestRegressor
 
 st.set_page_config(
     page_title="Bike Sharing Prediction",
@@ -70,7 +70,19 @@ add_selectbox = st.sidebar.radio(
     "",
     ("About", "Bike Sharing Prediction", "Conclusion")
 )
-def pima():
+
+if add_selectbox == 'About':
+    
+    st.subheader('ABOUT THE PROJECT')
+
+    st.markdown('<h4>Project Goals</h4>', unsafe_allow_html=True)
+    st.markdown('', unsafe_allow_html=True) 
+    	
+	
+elif add_selectbox == 'Bike Sharing Prediction':
+	
+    st.subheader('BIKE SHARING PREDICTION')
+    def pima():
     pickle_in = open('day_model_best.pkl', 'rb')
     regressor = pickle.load(pickle_in)
 
@@ -99,18 +111,6 @@ def pima():
     if submit:
             prediction = regressor.predict([[year, month, holiday,windspeed,day,weathersit_2,weathersit_3,weekday_Monday,weekday_Saturday,weekday_Sunday,weekday_Thursday,weekday_Tuesday,weekday_Wednesday]])
             st.write('Hi',name,'The predicted bike rentals is',prediction)
-
-if add_selectbox == 'About':
-    
-    st.subheader('ABOUT THE PROJECT')
-
-    st.markdown('<h4>Project Goals</h4>', unsafe_allow_html=True)
-    st.markdown('', unsafe_allow_html=True) 
-    	
-	
-elif add_selectbox == 'Bike Sharing Prediction':
-	
-    st.subheader('BIKE SHARING PREDICTION')
 
 
 elif add_selectbox == 'Conclusion':
