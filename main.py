@@ -6,6 +6,7 @@ import pandas as pd
 import seaborn as sns
 import streamlit as st
 from sklearn.ensemble import RandomForestRegressor
+import pickle
 
 st.set_page_config(
     page_title="Bike Sharing Prediction",
