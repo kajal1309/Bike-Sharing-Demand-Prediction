@@ -82,7 +82,7 @@ if add_selectbox == 'About':
 elif add_selectbox == 'Bike Sharing Prediction':
 	
       st.subheader('BIKE SHARING PREDICTION')
-      pickle_in = open('day_model_best.pkl', 'rb')
+      pickle_in = open('day_model_best', 'rb')
       regressor = pickle.load(pickle_in)
 
       st.markdown("## Bike sharing demand prediction ")
